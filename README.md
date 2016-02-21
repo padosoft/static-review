@@ -4,9 +4,6 @@ Custom Static Review classes
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![HHVM Status][ico-hhvm-status]][link-hhvm-status]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![SensioLabsInsight][ico-sensiolab]][link-sensiolab]
@@ -104,18 +101,15 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/padosoft/static-review.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/padosoft/static-review/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/padosoft/static-review.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/padosoft/static-review.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/padosoft/static-review.svg?style=flat-square
-[ico-sensiolab]: https://insight.sensiolabs.com/projects/@@@sensiolabs/small.png
-[ico-hhvm-status]: http://hhvm.h4cc.de/badge/padosoft/static-review.svg?style=flat
+[ico-sensiolab]: https://insight.sensiolabs.com/projects/aedff4d3-49ad-4b90-a4ab-52e9a1fa8df6/small.png
 
 [link-packagist]: https://packagist.org/packages/padosoft/static-review
-[link-travis]: https://travis-ci.org/padosoft/static-review
 [link-scrutinizer]: https://scrutinizer-ci.com/g/padosoft/static-review/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/padosoft/static-review
 [link-downloads]: https://packagist.org/packages/padosoft/static-review
-[link-sensiolab]: https://insight.sensiolabs.com/projects/@@@sensiolabs
-[link-hhvm-status]: http://hhvm.h4cc.de/package/padosoft/static-review
+[link-sensiolab]: https://insight.sensiolabs.com/projects/aedff4d3-49ad-4b90-a4ab-52e9a1fa8df6
+
 

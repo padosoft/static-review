@@ -1,5 +1,3 @@
-## WORK IN PROGRESS
-
 # static-review
 Custom Static Review classes
 
@@ -18,21 +16,32 @@ Custom Static Review classes
 Table of Contents
 =================
 
-  * [PROGETTO Custom Static Review classes](#progetto-static-review)
+  * [Custom Static Review classes](#progetto-static-review)
   * [Table of Contents](#table-of-contents)
-  * [PREREQUISITI](#prerequisiti)
-
-  * [CHANGE LOG](#change-log)
-  * [INSTALLATION](#installation)
-  * [ESEMPIO COMPLETO](#esempio-completo)
-
+  * [Prerequisites](#prerequisites)
+  * [Change Log](#change-log)
+  * [Installation](#installation)
+  * [Example](#example)
   * [Contributing](#contributing)
   * [Security](#security)
   * [Credits](#credits)
   * [About Padosoft](#about-padosoft)
   * [License](#license)
   
-# PREREQUISITI
+# PREREQUISITES
+
+You must install sjparkinson/static-review in the root of your project. 
+
+``` bash
+$ composer require sjparkinson/static-review
+```
+
+and create a new Hooks directory and copy static-review-pre-commit.php into.
+
+``` bash
+$ mkdir Hooks
+$ copy vendor/sjparkinson/static-review/hooks/static-review-pre-commit.php Hooks/static-review-pre-commit.php
+```
 
 # CHANGE LOG
 
@@ -46,7 +55,29 @@ You can install the package via composer:
 $ composer require padosoft/static-review
 ```
 
-# ESEMPIO COMPLETO
+Open Hooks/static-review-pre-commit.php in your root folder (created in PREREQUISITES above section) and add custom review.
+For example if you want to add VarDumpReview and DdReview:
+
+``` php
+$review->addReview(new LineEndingsReview())
+        //.....
+        //.....
+        //.....
+        //.....
+       ->addReview(new VarDumpReview());
+       ->addReview(new DdReview());
+```
+
+In the end, create a pre-commit hook, by running the following command:
+
+``` bash
+$ vendor/bin/static-review.php hook:install hooks/static-review-pre-commit.php .git/hooks/pre-commit
+```
+
+And with that, if you look in .git/hooks, you’ll now see a symlink created from pre-commit, to our new hooks file.
+See too: [sitepoint article](http://www.sitepoint.com/writing-php-git-hooks-with-static-review/)
+
+# EXAMPLE
 
 ## Screenshot esempio
 

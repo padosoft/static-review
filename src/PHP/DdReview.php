@@ -17,7 +17,7 @@ class DdReview extends AbstractFileReview
 
     public function review(ReporterInterface $reporter, ReviewableInterface $file)
     {
-        $cmd = sprintf('grep --fixed-strings --ignore-case --quiet "dd" %s', $file->getFullPath());
+        $cmd = sprintf('grep --fixed-strings --ignore-case --quiet " dd(" %s', $file->getFullPath());
         $process = $this->getProcess($cmd);
         $process->run();
 

@@ -39,12 +39,13 @@ class PhpLeadingLineReviewNoBlade extends AbstractFileReview
      */
     public function review(ReporterInterface $reporter, ReviewableInterface $file)
     {
-        $cmd = sprintf('read -r LINE < %s && echo $LINE', $file->getFullPath());
 
-        $process = $this->getProcess($cmd);
-        $process->run();
+        $f = fopen($file->getFullPath(), 'r');
+        $line = fgets($f);
+        fclose($f);
 
-        if (! in_array(trim($process->getOutput()), ['<?php', '#!/usr/bin/env php'])) {
+
+        if (! in_array(trim($line), ['<?php', '#!/usr/bin/env php'])) {
             $message = 'File must begin with `<?php` or `#!/usr/bin/env php`';
             $reporter->error($message, $this, $file);
 

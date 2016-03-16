@@ -27,17 +27,22 @@ Table of Contents
   
 # PREREQUISITES
 
-You must install sjparkinson/static-review in the root of your project. 
+Prerequisites of package are
+        "sjparkinson/static-review":
+        "squizlabs/php_codesniffer":
+        "phpunit/phpunit"
+        "scrutinizer/ocular"
+        "phpmd/phpmd"
+
+installed as required in composer
+
+
+
+create a new Hooks directory and copy pre-commit.php into from src/config folder.
 
 ``` bash
-$ composer require sjparkinson/static-review
-```
-
-and create a new Hooks directory and copy static-review-pre-commit.php into.
-
-``` bash
-$ mkdir Hooks
-$ copy vendor/sjparkinson/static-review/hooks/static-review-pre-commit.php Hooks/static-review-pre-commit.php
+$ mkdir hooks
+$ copy vendor/padosoft/static-review/src/config/pre-commit.php hooks/pre-commit.php
 ```
 
 # CHANGE LOG
@@ -52,7 +57,7 @@ You can install the package via composer:
 $ composer require padosoft/static-review
 ```
 
-Open Hooks/static-review-pre-commit.php in your root folder (created in PREREQUISITES above section) and add custom review.
+Open hooks/pre-commit.php in your root folder (created in PREREQUISITES above section) and add custom review.
 For example if you want to add VarDumpReview and DdReview:
 
 ``` php
@@ -68,11 +73,22 @@ $review->addReview(new LineEndingsReview())
 In the end, create a pre-commit hook, by running the following command:
 
 ``` bash
-$ vendor/bin/static-review.php hook:install hooks/static-review-pre-commit.php .git/hooks/pre-commit
-```
+create in .git/hooks a file named pre-commit like this
 
-And with that, if you look in .git/hooks, you’ll now see a symlink created from pre-commit, to our new hooks file.
-See too: [sitepoint article](http://www.sitepoint.com/writing-php-git-hooks-with-static-review/)
+****************************************************************
+#!/bin/sh
+
+php.exe "hooks/pre-commit.php"
+****************************************************************
+
+This for windows environment, for linux and mac you must use this
+****************************************************************
+#!/bin/sh
+
+php "hooks/pre-commit.php"
+****************************************************************
+
+```
 
 # EXAMPLE
 
